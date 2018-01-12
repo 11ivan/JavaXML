@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="file:/C:/Users/ivan/Desktop/GitHub/JavaXML/CorazonesJAXB/src/SchemaCorazones.xsd" uri="xml-resources/jaxb/xsdBinding/SchemaCorazones.xsd"/>
+    <system systemId="file:/C:/Users/icastillo/Desktop/GitHub/JavaXML/CorazonesJAXB/../SchemaCorazones.xsd" uri="xml-resources/jaxb/xsdBind/SchemaCorazones.xsd"/>
 </catalog>
