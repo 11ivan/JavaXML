@@ -5,6 +5,7 @@
  */
 package corazonesjaxb;
 
+import generated.Corazoncitos;
 import generated.Persona;
 import java.io.File;
 import java.io.StringWriter;
@@ -21,40 +22,58 @@ import javax.xml.bind.Unmarshaller;
  * @author icastillo
  */
 public class GestoraCorazones {
-        Persona listaPersonas;
+        Corazoncitos listaCorazoncitos;
+        List<Persona> listadoPersonas;
         
-    public void abrirListaAtomosJAXB (File archivoXML){
+    public void abrirListaPersonasJAXB (File archivoXML){
         JAXBContext contexto;
         try {
             contexto = JAXBContext.newInstance(Persona.class);
             Unmarshaller u = contexto.createUnmarshaller();
-            listaPersonas = (Persona) u.unmarshal(archivoXML);
+            listaCorazoncitos = (Corazoncitos) u.unmarshal(archivoXML);
         }catch (Exception ex){
             ex.printStackTrace();
         }
     }
-    public void recorreListaAtomos(){
-        AtomoEscribible atomoTuneao;
-        List<Persona> miListaAtomos = listaPersonas.getAtomo();
-        for(Persona unAtomo:miListaAtomos){
+    
+    public void cargaListaPersonas(){
+        listadoPersonas = listaCorazoncitos.getPersona();
+    }
+    
+    
+    
+    public void recorreListaPersonas(){
+//        AtomoEscribible atomoTuneao;
+
+       List<Persona> listaPerosnas = listaCorazoncitos.getPersona();
+       
+        /*for(Persona unAtomo:miListaAtomos){
             atomoTuneao = new AtomoEscribible(unAtomo);
             System.out.println("\nSiguiente elemento\n----------------------------------------------");
             System.out.println(atomoTuneao.getTodo());
-        }
+        }*/
+
+
+        //Aqui hariamos el merge
+        
     }
-    public void anadirAtomo(Persona nuevo){
-        listaPersonas.getAtomo().add(nuevo);
+
+
+    public void addPersona(Persona nuevo){
+        listaCorazoncitos.getPersona().add(nuevo);
     }
-    public void guardarListaAtomos(File archivoXML){
+
+
+    public void guardarListaPersonas(File archivoXML){
         JAXBContext contexto;
         try {
             contexto = JAXBContext.newInstance(Persona.class);
             Marshaller marshalero = contexto.createMarshaller();
             marshalero.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             StringWriter escribiente = new StringWriter();
-            marshalero.marshal(listaPersonas, archivoXML);
+            marshalero.marshal(listaCorazoncitos, archivoXML);
             // ahora lo marshaleamos a un stream para visualizarlo
-            marshalero.marshal(listaPersonas, escribiente);
+            marshalero.marshal(listaCorazoncitos, escribiente);
             System.out.println("-----------------");
             System.out.println("Object2XML:");
             System.out.println(escribiente.toString());
@@ -64,4 +83,15 @@ public class GestoraCorazones {
         }
     }
 
+    
+    public void merge(){
+        
+        //Partir la lista de personas por la mitad
+        
+        
+        
+    }
+    
+    
+    
 }

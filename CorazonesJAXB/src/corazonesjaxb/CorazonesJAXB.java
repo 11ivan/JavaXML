@@ -17,21 +17,39 @@ public class CorazonesJAXB {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-                ManejadorAtomos ma = new ManejadorAtomos();
-        File origen = new File(".//src//atomos.xml");
-        File destino = new File(".//src//masatomos.xml");
+        
+        GestoraCorazones gestoraCorazones=new GestoraCorazones();
+        File corazoncitos1 = new File(".//src//atomos.xml");
+        File corazoncitos2 = new File(".//src//masatomos.xml");
+        
         // Cargamos el XML mediante unmarshaling
-        ma.abrirListaAtomosJAXB(origen);
+          gestoraCorazones.abrirListaPersonasJAXB(corazoncitos1);
+
         // Comprobamos que se ha cargado
-        ma.recorreListaAtomos();
-        // Ahora vamos a a?adir otro átomo
-        Atomo nuevoAtomo = new Atomo();
-        nuevoAtomo.setNombre("Mentirio");
-        nuevoAtomo.setSimbolo("Mt");
-        nuevoAtomo.setNumeroAtomico(111);
-        ma.anadirAtomo (nuevoAtomo);
+//        ma.recorreListaAtomos();
+          gestoraCorazones.cargaListaPersonas();
+          
+        //Y lo asignamos a un array
+          
+        // Cargamos el XML mediante unmarshaling
+          gestoraCorazones.abrirListaPersonasJAXB(corazoncitos2);
+
+        // Comprobamos que se ha cargado
+//        ma.recorreListaAtomos();
+          gestoraCorazones.cargaListaPersonas();
+          
+        //Y lo asignamos a un array
+                
+        
+        
+        
+        // Ahora vamos a ordenar la lista de personas
+        
+        
+               
+        
         // Y generamso un nuevo XML mediante marshaling
-        ma.guardarListaAtomos(destino);
+//        ma.guardarListaAtomos(destino);
 
     }
     
