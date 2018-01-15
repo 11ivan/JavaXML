@@ -5,7 +5,9 @@
  */
 package corazonesjaxb;
 
+import generated.Persona;
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,38 +21,38 @@ public class CorazonesJAXB {
     public static void main(String[] args) {
         
         GestoraCorazones gestoraCorazones=new GestoraCorazones();
-        File corazoncitos1 = new File(".//src//atomos.xml");
-        File corazoncitos2 = new File(".//src//masatomos.xml");
+        File corazoncitos1 = new File(".//src//corazonesjaxb//Corazones1.xml");
+        File corazoncitos2 = new File(".//src//corazonesjaxb//Corazones2.xml");
+        File corazoncitosOrdenado = new File(".//src//corazonesjaxb//CorazonesOrdenado.xml");
+        ArrayList<Persona> arrayPersonas1;
+        ArrayList<Persona> arrayPersonas2;
+        UtilArray utilArray=new UtilArray();
+        ArrayList<Persona> arrayPersonasOrdenado=new ArrayList<Persona>();
         
         // Cargamos el XML mediante unmarshaling
-          gestoraCorazones.abrirListaPersonasJAXB(corazoncitos1);
+        gestoraCorazones.abrirListaPersonasJAXB(corazoncitos1);
 
         // Comprobamos que se ha cargado
-//        ma.recorreListaAtomos();
-          gestoraCorazones.cargaListaPersonas();
+        gestoraCorazones.cargaListaPersonas();
           
         //Y lo asignamos a un array
-          
+        arrayPersonas1=gestoraCorazones.getListaPersonas();
+        
         // Cargamos el XML mediante unmarshaling
-          gestoraCorazones.abrirListaPersonasJAXB(corazoncitos2);
+        gestoraCorazones.abrirListaPersonasJAXB(corazoncitos2);
 
         // Comprobamos que se ha cargado
-//        ma.recorreListaAtomos();
-          gestoraCorazones.cargaListaPersonas();
+        gestoraCorazones.cargaListaPersonas();
           
         //Y lo asignamos a un array
-                
-        
-        
-        
+        arrayPersonas2=gestoraCorazones.getListaPersonas();
+                   
         // Ahora vamos a ordenar la lista de personas
-        
-        
-               
+        arrayPersonasOrdenado=utilArray.merge(arrayPersonas1, arrayPersonas2);                          
         
         // Y generamso un nuevo XML mediante marshaling
-//        ma.guardarListaAtomos(destino);
-
+        gestoraCorazones.listaCorazoncitos.setPersona(arrayPersonasOrdenado);
+        gestoraCorazones.guardarListaPersonas(corazoncitosOrdenado);
     }
     
 }

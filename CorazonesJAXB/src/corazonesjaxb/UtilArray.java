@@ -5,8 +5,8 @@
  */
 package corazonesjaxb;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
 import generated.Persona;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,11 +14,7 @@ import generated.Persona;
  */
 public class UtilArray {
     
-    //PSEUDOCODIGO METODO MERGE
-        //
-    
-    
-    public Persona[] mergeSort(Persona[] arrayPersonas1, Persona[] arrayPersonas2){
+   /*public Persona[] mergeSort(Persona[] arrayPersonas1, Persona[] arrayPersonas2){
         
         Persona[] arrayAux1=new Persona[arrayPersonas1.length];
         Persona[] arrayAux2=null;
@@ -76,21 +72,58 @@ public class UtilArray {
         arrayOrdenado=fusionaOrdenado(izq, decha);
         
         return arrayOrdenado;
-    }
+    }*/
     
     
-    public Persona[] fusionaOrdenado(Persona[] arrayPersonas1, Persona[] arrayPersonas2){
-        Persona[] ordenado=new Persona[arrayPersonas1.length+arrayPersonas2.length];
-        
-        for(int i=0;i<ordenado.length;i++){
-            
-            if(){
-                
+    public ArrayList<Persona> merge(ArrayList<Persona> arrayPersonas1, ArrayList<Persona>arrayPersonas2){
+        ArrayList<Persona> listaOrdenada=new ArrayList<Persona>();
+        int index1=0;
+        int index2=0;
+        int seHaPasado=0;
+        Boolean yoTeDiga=true;
+
+        do{ 
+            //Comprobamos si se ha pasado el indice de algun array
+            if(index1==arrayPersonas1.size()){
+                seHaPasado=1;
+            }else if(index2==arrayPersonas2.size()){
+                seHaPasado=2;
             }
-            
-        }
+                      
+            switch(seHaPasado){
+                case 0:
+                    if(arrayPersonas1.get(index1).getID()<arrayPersonas2.get(index2).getID()){
+                        listaOrdenada.add(arrayPersonas1.get(index1));
+                        index1++;
+                    }else{
+                        listaOrdenada.add(arrayPersonas2.get(index2));
+                        index2++;
+                    }  
+                    break;
+                    
+                case 1:
+                        //Rellenamos con los que quedan del array2
+                        do{
+                            listaOrdenada.add(arrayPersonas2.get(index2));
+                            index2++;
+                        }while(index2!=arrayPersonas2.size());
+                        
+                        yoTeDiga=false;
+                    break;
+                    
+                case 2:
+                        //Rellenamos con los que quedan del array1
+                        do{
+                            listaOrdenada.add(arrayPersonas1.get(index1));
+                            index1++;
+                        }while(index1!=arrayPersonas1.size());
+                        
+                        yoTeDiga=false;
+                    break;
+            }
+        }while(yoTeDiga);
         
-        return ordenado;
+        return listaOrdenada;
     }
     
     

@@ -11,19 +11,19 @@
     <target name="jaxb-code-generation" depends="xjc-typedef-target,-do-init,-init-macrodef-javac">
         <mkdir dir="${build.generated.sources.dir}/jaxb" xmlns:s="http://xml.netbeans.org/schema/JAXBWizConfig"/>
         <mkdir dir="build/generated/jaxbCache" xmlns:s="http://xml.netbeans.org/schema/JAXBWizConfig"/>
-        <mkdir dir="build/generated/jaxbCache/xsdBind"/>
-        <xjc destdir="build/generated/jaxbCache/xsdBind" catalog="catalog.xml">
+        <mkdir dir="build/generated/jaxbCache/xsdBinding"/>
+        <xjc destdir="build/generated/jaxbCache/xsdBinding" catalog="catalog.xml">
             <classpath>
                 <pathelement location="${src.dir}"/>
                 <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
             </classpath>
             <arg value="-xmlschema"/>
-            <schema file="xml-resources/jaxb/xsdBind/SchemaCorazones.xsd"/>
-            <depends file="xml-resources/jaxb/xsdBind/SchemaCorazones.xsd"/>
-            <produces dir="build/generated/jaxbCache/xsdBind"/>
+            <schema file="xml-resources/jaxb/xsdBinding/SchemaCorazones.xsd"/>
+            <depends file="xml-resources/jaxb/xsdBinding/SchemaCorazones.xsd"/>
+            <produces dir="build/generated/jaxbCache/xsdBinding"/>
         </xjc>
         <copy todir="${build.generated.sources.dir}/jaxb">
-            <fileset dir="build/generated/jaxbCache/xsdBind"/>
+            <fileset dir="build/generated/jaxbCache/xsdBinding"/>
         </copy>
     </target>
 </project>

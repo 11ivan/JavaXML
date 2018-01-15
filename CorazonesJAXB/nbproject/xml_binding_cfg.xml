@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <schemas xmlns='http://xml.netbeans.org/schema/JAXBWizConfig' destdir='build/generated-sources/jaxb' projectName='CorazonesJAXB' version='1.0'>
-	<schema type='-xmlschema' package='' name='xsdBind'>
+	<schema type='-xmlschema' package='' name='xsdBinding'>
 		<xjc-options>
 		</xjc-options>
 		<schema-sources>
-			<schema-source location='xml-resources/jaxb/xsdBind/SchemaCorazones.xsd' origLocation='../SchemaCorazones.xsd'/>
+			<schema-source location='xml-resources/jaxb/xsdBinding/SchemaCorazones.xsd' origLocation='../SchemaCorazones.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>
