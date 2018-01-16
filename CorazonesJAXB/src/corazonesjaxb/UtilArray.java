@@ -95,6 +95,7 @@ public class UtilArray {
                     if(arrayPersonas1.get(index1).getID()<arrayPersonas2.get(index2).getID()){
                         listaOrdenada.add(arrayPersonas1.get(index1));
                         index1++;
+                        //listaOrdenada.add(arrayPersonas1.ne);
                     }else{
                         listaOrdenada.add(arrayPersonas2.get(index2));
                         index2++;

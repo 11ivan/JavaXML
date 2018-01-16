@@ -75,14 +75,7 @@ public class GestoraCorazones {
     }
 
     
-    public void merge(){
-        
-        //Partir la lista de personas por la mitad
-        
-        
-        
-    }
-    
+   
     
     
 }
