@@ -7,6 +7,7 @@ package corazonesjaxb;
 
 import generated.Persona;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -75,7 +76,7 @@ public class UtilArray {
     }*/
     
     
-    public ArrayList<Persona> merge(ArrayList<Persona> arrayPersonas1, ArrayList<Persona>arrayPersonas2){
+    public ArrayList<Persona> merge(ArrayList<Persona> arrayPersonas1, List<Persona>arrayPersonas2){
         ArrayList<Persona> listaOrdenada=new ArrayList<Persona>();
         int index1=0;
         int index2=0;
@@ -95,7 +96,6 @@ public class UtilArray {
                     if(arrayPersonas1.get(index1).getID()<arrayPersonas2.get(index2).getID()){
                         listaOrdenada.add(arrayPersonas1.get(index1));
                         index1++;
-                        //listaOrdenada.add(arrayPersonas1.ne);
                     }else{
                         listaOrdenada.add(arrayPersonas2.get(index2));
                         index2++;
@@ -120,7 +120,8 @@ public class UtilArray {
                         }while(index1!=arrayPersonas1.size());
                         
                         yoTeDiga=false;
-                    break;
+           
+                        break;
             }
         }while(yoTeDiga);
         
