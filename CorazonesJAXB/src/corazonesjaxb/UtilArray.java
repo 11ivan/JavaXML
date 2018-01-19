@@ -119,8 +119,7 @@ public class UtilArray {
                             index1++;
                         }while(index1!=arrayPersonas1.size());
                         
-                        yoTeDiga=false;
-           
+                        yoTeDiga=false;          
                         break;
             }
         }while(yoTeDiga);
